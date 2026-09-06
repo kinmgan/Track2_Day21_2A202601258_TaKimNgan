@@ -34,8 +34,6 @@ Tập dữ liệu Adult bị mất cân bằng lớp nghiêm trọng (lớp thu 
 
 | Khó khăn | Nguyên nhân | Cách giải quyết |
 |---|---|---|
-| Lỗi xác thực Cloud Storage trên GitHub Actions. | Khóa bí mật AWS IAM Credentials chưa cấu hình đúng trong Secrets. | Khai báo lại các biến Secrets `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` trên GitHub Repo. |
-| Quality gate chặn deployment do F1-score < 0.65. | Mô hình khởi tạo với siêu tham số quá đơn giản (`n_estimators=50, max_depth=2`). | Thử nghiệm trên MLflow UI và cập nhật bộ tham số tối ưu (`n_estimators=100, learning_rate=0.1, max_depth=3`) vào `params.yaml`. |
 | Runner GitHub Actions không SSH được tới máy chủ EC2. | Private key SSH chưa chuẩn định dạng hoặc Security Group EC2 chặn port 22/8080. | Thêm private key `income_deploy` vào GitHub Secrets và mở port 22, 8080 trong Security Group AWS. |
 
 ---
